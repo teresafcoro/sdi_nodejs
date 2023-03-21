@@ -31,11 +31,11 @@
                 <label class="control-label col-sm-2" for="rol">Rol:</label>
                 <div class="col-sm-10">
                     <select class="form-control" id="rol" name="rol">
-                        <option value="cantante">cantante</option>
-                        <option value="bateria">batería</option>
-                        <option value="guitarrista">guitarrista</option>
-                        <option value="bajista">bajista</option>
-                        <option value="pianista">pianista</option>
+                        <!-- Inicio del Bloque roles -->
+                        {% for rol in roles %}
+                            <option value="{{ rol.rol }}">{{ rol.rol }}</option>
+                        {% endfor %}
+                        <!-- Fin del Bloque roles -->
                     </select>
                 </div>
             </div>
