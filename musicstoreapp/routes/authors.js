@@ -3,15 +3,15 @@ module.exports = function (app) {
         let authors = [{
             "name": "Tom Hamilton",
             "group": "Hard rock Aerosmith",
-            "rol": "bajista"
+            "rol": "Bajista"
         }, {
             "name": "Travis Barker",
             "group": "Blink-182",
-            "rol": "batería"
+            "rol": "Batería"
         }, {
             "name": "Kurt Cobain",
             "group": "Nirvana",
-            "rol": "cantante"
+            "rol": "Cantante"
         }];
 
         let response = {
