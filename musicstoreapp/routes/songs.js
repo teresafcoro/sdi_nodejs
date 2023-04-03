@@ -51,14 +51,14 @@ module.exports = function (app, songsRepository, commentsRepository) {
                                     if (err)
                                         res.send("Error al subir el audio");
                                     else
-                                        res.send("Agregada la canción ID: " + songId);
+                                        res.redirect("/publications");
                                 });
                             } else
-                                res.send("Agregada la canción ID: " + songId);
+                                res.redirect("/publications");
                         }
                     });
                 } else
-                    res.send("Agregada la canción ID: " + songId);
+                    res.redirect("/publications");
             }
         });
     });
@@ -93,11 +93,10 @@ module.exports = function (app, songsRepository, commentsRepository) {
         const options = {upsert: false}
         songsRepository.updateSong(song, filter, options).then(result => {
             step1UpdateCover(req.files, songId, function (result) {
-                if (result == null) {
+                if (result == null)
                     res.send("Error al actualizar la portada o el audio de la canción");
-                } else {
-                    res.send("Se ha modificado el registro correctamente");
-                }
+                else
+                    res.redirect("/publications");
             });
         }).catch(error => {
             res.send("Se ha producido un error al modificar la canción " + error)
