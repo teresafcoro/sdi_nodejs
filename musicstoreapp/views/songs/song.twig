@@ -10,7 +10,13 @@
                 <h2>{{ song.title }}</h2>
                 <p>{{ song.author }}</p>
                 <p>{{ song.kind }}</p>
-                <a class="btn btn-primary pull-right" href="/songs/buy/{{ song._id }}">{{ song.price }} €</a>
+                {% if check == false %}
+                    <a class="btn btn-primary pull-right" href="/songs/buy/{{ song._id }}">{{ song.price }} €</a>
+                {% else %}
+                    <audio controls>
+                        <source src="/audios/{{ song._id }}.mp3" type="audio/mpeg">
+                    </audio>
+                {% endif %}
                 <!-- Cambiar el precio por "reproducir" si ya está comprada -->
             </div>
         </div>
@@ -32,7 +38,8 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="text">Comentario:</label>
                 <div class="col-sm-10">
-                    <input id="text" type="text" class="form-control" name="text" placeholder="Añade un nuevo comentario"
+                    <input id="text" type="text" class="form-control" name="text"
+                           placeholder="Añade un nuevo comentario"
                            required="true"/>
                 </div>
             </div>
