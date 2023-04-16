@@ -44,7 +44,8 @@ module.exports = {
             const database = client.db("musicStore");
             const collectionName = 'songs';
             const songsCollection = database.collection(collectionName);
-            const result = await songsCollection.updateOne(filter, {$set: newSong}, options);
+            // const result = await songsCollection.updateOne(filter, {$set: newSong}, options);
+            const result = await songsCollection.findOneAndUpdate(filter, {$set: newSong}, options);
             return result;
         } catch (error) {
             throw (error);
