@@ -29,7 +29,8 @@
                 console.log(response); // <-- Prueba
                 $("#main-container").load("widget-songs.html");
             }, error: function (error) {
-                $("#main-container").load("widget-login.html");
+                $("#div-errores").show();
+                $("#widget-agregar").prepend("<div id='div-errores' class='alert alert-danger'>" + error.responseJSON.error + "</div>");
             }
         });
     }
